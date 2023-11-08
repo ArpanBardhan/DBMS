@@ -1,4 +1,4 @@
-# EXP NO 10: SYNONYMS AND ASSERTIONS IN SQL 
+![image](https://github.com/ArpanBardhan/DBMS/assets/119405037/770e355d-1326-4c12-9d69-6f17734a6ccd)# EXP NO 10: SYNONYMS AND ASSERTIONS IN SQL 
 ### DATE: 07/11/2023
 ## AIM:
 To create a student database and create a synonym and assertions.
@@ -19,7 +19,7 @@ A SYNONYM provides another name for database object, referred to as original obj
 ### 1) Create a table EMPLOYEE and perform insertion of two rows.
 
 ### SQL QUERY: 
-```
+```sql
 CREATE TABLE EMPLOYEE (
     employee_id INT ,
     name VARCHAR(255),
@@ -40,7 +40,7 @@ CREATE TABLE EMPLOYEE (
 ### 2) Create a synonym S1 for EMPLOYEE  table.
 
 ### SQL QUERY: 
-```
+```sql
 CREATE SYNONYM S1 FOR EMPLOYEE;
 ```
 
@@ -53,7 +53,7 @@ CREATE SYNONYM S1 FOR EMPLOYEE;
 ### 3) Display the EMPLOYEE  table using synonym S1.
  
 ### SQL QUERY: 
-```
+```sql
 SELECT * FROM S1;
 ```
 
@@ -68,7 +68,7 @@ SELECT * FROM S1;
 ### 4) Drop the synonym.
 
 ### SQL QUERY: 
-```
+```sql
 DROP SYNONYM S1;
 ```
 
@@ -81,7 +81,7 @@ DROP SYNONYM S1;
 ### 5) Create a supplier table and create a sequence S2 for supplier table id.
 
 ### SQL QUERY: 
-```
+```sql
 CREATE TABLE supplier (
     id INT,
     name VARCHAR(255),
@@ -104,7 +104,7 @@ CREATE SEQUENCE S2 START 1;
 ### 6) insert the data into supplier table use sequence.
 
 ### SQL QUERY: 
-```
+```sql
 INSERT INTO supplier (id, name, address, contact_person)
 VALUES (NEXTVAL('S2'), 'ABC Suppliers', '123 Main Street', 'John Doe');
 
@@ -121,7 +121,7 @@ VALUES (NEXTVAL('S2'), 'XYZ Distributors', '456 Elm Road', 'Jane Smith');
 ### 7) Drop the sequence
 
 ### SQL QUERY: 
-```
+```sql
 DROP SEQUENCE S2;
 ```
 
