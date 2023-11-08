@@ -70,45 +70,69 @@ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (40, 'OPERATIONS', 'BOSTON');
 
 
 ### QUERY:
-
+```SQL
+ select ename from emp where sal>(select sal from emp where empno=7566);
+```
 
 ### OUTPUT:
+![Screenshot 2023-11-08 161558](https://github.com/ArpanBardhan/DBMS/assets/119405037/d72df967-0777-4460-93ea-12ae21ad46a1)
 
 ### Q2) List the ename,job,sal of the employee who get minimum salary in the company.
 
 ### QUERY:
-
+```SQL
+ select ename,job,sal from emp where sal = (select min(sal) from emp);
+```
 
 ### OUTPUT:
+![Screenshot 2023-11-08 161609](https://github.com/ArpanBardhan/DBMS/assets/119405037/f5bf807f-3daf-4c99-9ac0-9dd3455a3755)
 
 ### Q3) List ename, job of the employees who work in deptno 10 and his/her job is any one of the job in the department ‘SALES’.
 
 ### QUERY:
-
+```SQL
+> SELECT ename, job
+-> FROM emp
+-> WHERE deptno = 10 AND job IN (SELECT job FROM emp WHERE job = 'SALES');
+```
 
 ### OUTPUT:
+![Screenshot 2023-11-08 161651](https://github.com/ArpanBardhan/DBMS/assets/119405037/233a2663-0723-47df-ad50-b26b5ddef98d)
 
 
 ### Q4) Create a view empv5 (for the table emp) that contains empno, ename, job of the employees who work in dept 10.
 
 ### QUERY:
-
+```SQL
+ CREATE VIEW emv5 AS SELECT empno, ename, job FROM emp WHERE deptno = 10;
+```
 
 ### OUTPUT:
+![Screenshot 2023-11-08 161704](https://github.com/ArpanBardhan/DBMS/assets/119405037/306cc3af-bfbb-4ea7-a03b-7cce187e1291)
 
 ### Q5) Create a view with column aliases empv30 that contains empno, ename, sal of the employees who work in dept 30. Also display the contents of the view.
 
 ### QUERY:
-
+```SQL
+ CREATE VIEW emv30 AS SELECT empno AS `Employee Number`, ename AS `Employee Name`, sal AS `Salary` FROM emp WHERE deptno = 30;
+```
 
 ### OUTPUT:
+![Screenshot 2023-11-08 161729](https://github.com/ArpanBardhan/DBMS/assets/119405037/4048bf4f-5d94-4f84-a20d-ad56e96db12c)
 
 ### Q6) Update the view empv5 by increasing 10% salary of the employees who work as ‘CLERK’. Also confirm the modifications in emp table
 
 ### QUERY:
-
+```SQL
+ UPDATE emv5 SET sal = sal * 1.1 WHERE job = 'CLERK';
+ UPDATE emp
+    -> SET sal = sal * 1.10
+    -> WHERE job = 'CLERK';
+```
 
 ### OUTPUT:
+![Screenshot 2023-11-08 161937](https://github.com/ArpanBardhan/DBMS/assets/119405037/342f579e-4bd4-4636-9ecf-0e58cb5ac52f)
+![Screenshot 2023-11-08 161944](https://github.com/ArpanBardhan/DBMS/assets/119405037/17b79f6d-4e2f-4438-bc04-d943273238d5)
 
 ## Create a Customer1 Table
 ```sql
@@ -141,31 +165,63 @@ INSERT INTO Salesman1 (salesman_id, name, city, commission) VALUES(5003, 'Lauson
 ### Q7) Write a SQL query to find the salesperson and customer who reside in the same city. Return Salesman, cust_name and city.
 
 ### QUERY:
-
+```SQL
+ SELECT salesman1.name AS "Salesman",
+    ->        customer1.cust_name AS "Customer Name",
+    ->        salesman1.city AS "City"
+    -> FROM salesman1
+    -> INNER JOIN customer1 ON salesman1.city = customer1.city;
+```
 
 ### OUTPUT:
+![Screenshot 2023-11-08 162013](https://github.com/ArpanBardhan/DBMS/assets/119405037/2b195bd7-d33f-4497-9f4e-12d64a2eb3a6)
 
 ### Q8) Write a SQL query to find salespeople who received commissions of more than 13 percent from the company. Return Customer Name, customer city, Salesman, commission.
 
 
 ### QUERY:
-
+```SQL
+ SELECT customer1.cust_name AS "Customer Name",
+    ->        customer1.city AS "Customer City",
+    ->        salesman1.name AS "Salesman",
+    ->        salesman1.commission AS "Commission"
+    -> FROM salesman1
+    -> INNER JOIN customer1 ON salesman1.salesman_id = customer1.salesman_id
+    -> WHERE salesman1.commission > 0.13;
+```
 
 ### OUTPUT:
+![Screenshot 2023-11-08 162024](https://github.com/ArpanBardhan/DBMS/assets/119405037/5fbf0df5-c7f1-4601-92b0-dd3e3871a2d2)
 
 ### Q9) Perform Natural join on both tables
 
 ### QUERY:
-
+```SQL
+ select * from Customer1 natural join salesman1;
+```
 
 ### OUTPUT:
+![Screenshot 2023-11-08 162035](https://github.com/ArpanBardhan/DBMS/assets/119405037/eb42c972-4861-4835-a09f-32b6cda8eadb)
 
 ### Q10) Perform Left and right join on both tables
 
 ### QUERY:
+```SQL
+ SELECT *
+    -> FROM salesman1
+    -> LEFT JOIN customer1 ON salesman1.salesman_id = customer1.salesman_id;
 
+ SELECT *
+    -> FROM salesman1
+    -> RIGHT JOIN customer1 ON salesman1.salesman_id = customer1.salesman_id;
+```
 
 ### OUTPUT:
+## LEFT JOIN
+![Screenshot 2023-11-08 162046](https://github.com/ArpanBardhan/DBMS/assets/119405037/f5c08fee-bda0-44c7-9360-c0f01230e579)
+
+## RIGHT JOIN
+![Screenshot 2023-11-08 162058](https://github.com/ArpanBardhan/DBMS/assets/119405037/0289b240-0edf-41e1-8a07-3b761deb72bd)
 
 ## RESULT 
 ### Thus the basics of subqueries,views,joins are performed in SQL.
