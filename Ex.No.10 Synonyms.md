@@ -1,4 +1,4 @@
-![image](https://github.com/ArpanBardhan/DBMS/assets/119405037/770e355d-1326-4c12-9d69-6f17734a6ccd)# EXP NO 10: SYNONYMS AND ASSERTIONS IN SQL 
+# EXP NO 10: SYNONYMS AND ASSERTIONS IN SQL 
 ### DATE: 07/11/2023
 ## AIM:
 To create a student database and create a synonym and assertions.
