@@ -1,5 +1,5 @@
-# EX.NO.6 SubQueries, Views and Joins 
-### DATE
+# EX.NO.5 SubQueries, Views and Joins 
+### DATE : 07-11-2023
 ## AIM
 ### To use SubQueries, Views and Joins in SQL 
 ## Create employee Table
