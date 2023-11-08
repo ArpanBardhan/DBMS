@@ -11,7 +11,7 @@
 6. End the begin section.
 
 ### Program:
-```
+```sql
 CREATE TABLE employed(
   empid NUMBER,
   empname VARCHAR2(10),
@@ -41,7 +41,7 @@ insert into employed values(2,'Santhosh','CSE',500000)
 
 
 ### PLSQL Trigger code
-```
+```sql
 -- Create the trigger
 CREATE OR REPLACE TRIGGER log_sal_update
 BEFORE UPDATE ON employed
