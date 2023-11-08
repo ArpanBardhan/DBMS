@@ -11,7 +11,7 @@
 
 ### Program:
 ### CREATE EMPLOYEE TABLE:
-```
+```sql
 CREATE TABLE employd (
   empid NUMBER,
   empname VARCHAR(10),
@@ -23,7 +23,7 @@ INSERT INTO employd VALUES (1, 'Nagul', 'Sales', 100000);
 INSERT INTO employd VALUES (2, 'Arvind', 'Marketing', 120000);
 ```
 ### PLSQL Cursor code
-```
+```sql
 DECLARE
    CURSOR employd_cursor IS
    SELECT empid,empname,dept,salary
