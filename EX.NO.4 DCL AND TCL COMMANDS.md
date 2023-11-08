@@ -1,5 +1,5 @@
 # EX.NO 4 Data Control Language (DCL) Commands and Transaction Control Languages (TCL) in SQL
-### DATE:
+### DATE:07/11/2023
 ## AIM:
 To create a manager database and execute DML queries using SQL.
 
@@ -19,101 +19,115 @@ To create a manager database and execute DML queries using SQL.
 ### Q1) Create a table employee with employee id ,name and Address
 
 ### QUERY:
-
+```sql
+sql
+create table employee(
+emp_id numeric,
+emp_name varchar(10),
+addr varchar(40)
+);
+```
 
 ### OUTPUT:
+![image](https://github.com/NITHISH74/DBMS/assets/94164665/c4cab10d-4e7b-43e3-bd27-0c1b05d72a51)
 
 ### Q2) Insert three rows into emploee table 
-
-
 ### QUERY:
-
+```sql
+sql
+insert into employee values(1,'Luffy','EastBlue');
+insert into employee values(2,'Shanks','GodValley');
+insert into employee values(3,'Grap','MarinFord');
+```
 
 ### OUTPUT:
+![image](https://github.com/NITHISH74/DBMS/assets/94164665/cc54e921-a030-414c-a435-5acef8af12bb)
 
 ### Q3) Start the transaction and create a save point s1.
 
 ### QUERY:
-
+```sql
+sql
+savepoint A;
+```
 
 ### OUTPUT:
+![image](https://github.com/NITHISH74/DBMS/assets/94164665/49e6e831-20fe-4bf8-b56e-1e333fa6c3c3)
 
 ### Q4) Perform insertion into employee table.
 
 ### QUERY:
-
+```sql
+sql
+insert into employee(4,'Robin','EniesLobby');
+```
 
 ### OUTPUT:
+![image](https://github.com/NITHISH74/DBMS/assets/94164665/1277f006-3a41-46f9-8ad1-08e874ec3b1a)
 
 
-### Q6)	Display the employee table and create a save point s2 .
-
-
+### Q5)	Display the employee table and create a save point s2 .
 ### QUERY:
 
+```sql
+sql
+select * from employee;
+savepoint s2;
+```
+
+
 
 ### OUTPUT:
+![image](https://github.com/NITHISH74/DBMS/assets/94164665/e7fca0ef-23d6-4a2a-b02c-aa865032db75)
 
 
-### Q7)	Perform updation on any one of the row.
-
-
+### Q6)	Perform updation on any one of the row.
 ### QUERY:
-
+```sql
+sql
+update employee set emp_name='Nico Robin' where emp_id=4;
+```
 
 ### OUTPUT:
+![image](https://github.com/NITHISH74/DBMS/assets/94164665/50e2ef49-513c-43ad-ad2a-c4971fd0fc7a)
 
 
-### Q8) Display the employee table and rollback to  save point s2 
-
-
+### Q7) Display the employee table and rollback to  save point s2 
 ### QUERY:
+```sql
+sql
+select * from employee;
+rollback to s2;
 
+```
 
 ### OUTPUT:
+![image](https://github.com/NITHISH74/DBMS/assets/94164665/f9b6fbb2-a118-4360-a7d2-3fa4f6d85a25)
 
 
-### Q9) Display the employee table and commit the changes; 
-
-
+### Q8) Display the employee table and commit the changes; 
 ### QUERY:
-
+```sql
+sql
+select * from employee;
+commit;
+```
 
 ### OUTPUT:
+![image](https://github.com/NITHISH74/DBMS/assets/94164665/f64c5b14-4d95-4a9d-95a3-1322d3bd9eea)
 
 
-### Q10) Rollback to save point s1;
-
-
+### Q9) Rollback to save point s1;
 ### QUERY:
-
-
-### OUTPUT:
-
-
-### Q11)	Create a new user and grant access to any one database with "insert and update"
-
-
-### QUERY:
-
+```sql
+sql
+rollback to A;
+```
 
 ### OUTPUT:
+![image](https://github.com/NITHISH74/DBMS/assets/94164665/82262c70-5160-4625-b724-cd3c4370d07e)
 
 
-### Q12) Check the user access and display the result 
-
-
-### QUERY:
-
-
-### OUTPUT:
-
-### Q13) Revoke the privillages.
-
-### QUERY:
-
-
-### OUTPUT:
 
 
 ## RESULT :
